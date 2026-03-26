@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grandmaster Chess Pro</title>
+    
+    <!-- Libraries -->
+    <link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+    <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
+    <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+    
+    <!-- Custom Files -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="board"></div>
+
+    <div class="ui-panel">
+        <div id="status">Select a Mode</div>
+        
+        <div class="p2p-box">
+            <div style="display:flex; justify-content: space-between; align-items: center;">
+                <span>ID: <b id="my-id">...</b></span>
+                <button class="small-btn" onclick="copyInvite()">Copy Link</button>
+            </div>
+            <input type="text" id="friend-id" placeholder="Paste Friend ID">
+            <button class="wide-btn" onclick="connectToFriend()">Connect to Friend</button>
+        </div>
+
+        <select id="elo-select">
+            <option value="0">400 Elo (Beginner)</option>
+            <option value="10">1500 Elo (Intermediate)</option>
+            <option value="20">2400 Elo (Master)</option>
+        </select>
+
+        <div class="btn-group">
+            <button onclick="newGame('bot')">vs Bot</button>
+            <button onclick="newGame('friend')">Local Play</button>
+        </div>
+        
+        <button id="review-btn" onclick="runReview()">Analyze Game</button>
+
+        <div id="review-panel">
+            <b>Game Review:</b>
+            <div id="review-list">Ready for analysis...</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
